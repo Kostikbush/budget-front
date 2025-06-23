@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { Budget } from "../budget/budget"
+import { Budget } from "../budget/budget";
 
 import { Notifications } from "@/features/notifications/notifications";
 
@@ -10,7 +10,7 @@ import { useRootStore } from "@/app/rootStore";
 import { clearUsers } from "@/app/indexDb";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-import { Button, Tab, Tabs } from "@heroui/react";
+import { Button, Image, Tab, Tabs } from "@heroui/react";
 
 import { AiOutlineAim } from "react-icons/ai";
 // копилка
@@ -18,6 +18,7 @@ import { TbPigMoney } from "react-icons/tb";
 import { GiReceiveMoney } from "react-icons/gi";
 import { GiPayMoney } from "react-icons/gi";
 
+import blackLogo from "./logo_black3.png";
 import { IoHomeOutline } from "react-icons/io5";
 import { useScroll } from "./useScroll";
 
@@ -26,7 +27,7 @@ const tabsKeys = {
   income: "income",
   expense: "expense",
   aim: "aim",
-}; 
+};
 
 const tabs = [
   {
@@ -59,19 +60,26 @@ const tabs = [
 }));
 
 export const BudgetMain = () => {
-  const {hideTabs, scrollContainerRef, toggleTabs} = useScroll();
+  const { hideTabs, scrollContainerRef, toggleTabs } = useScroll();
   const { setUser, user } = useRootStore();
 
   const blockTabs = !user?.budget;
 
   const exit = () => {
     clearUsers();
-    setUser(null)
-  }
+    setUser(null);
+  };
 
   return (
     <section className="flex flex-col items-center justify-start h-[100dvh]">
-      <header className="w-full p-2 flex justify-end">
+      <header className="w-full p-2 flex justify-between">
+        <Image
+          className="object-contain"
+          height={30}
+          width={90}
+          alt="logo"
+          src={blackLogo.src}
+        />
         <Link
           href="/enter"
           onClick={exit}
@@ -121,4 +129,4 @@ export const BudgetMain = () => {
       </div>
     </section>
   );
-}
+};

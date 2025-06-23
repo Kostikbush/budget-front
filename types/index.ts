@@ -5,9 +5,9 @@ export type IconSvgProps = SVGProps<SVGSVGElement> & {
 };
 
 export enum TypeNotification {
-  newExpense="newExpense",
-  invitation="invitation",
-};
+  newExpense = "newExpense",
+  invitation = "invitation",
+}
 
 export interface Notification {
   ownerId: string;
@@ -18,4 +18,18 @@ export interface Notification {
   createdAt: string;
 }
 
-export type Notifications = Notification[]
+export type Notifications = Notification[];
+
+export interface BudgetType {
+  createdAt: string;
+  members: { _id: string }[];
+  name: string;
+  owner: string;
+  sum: number;
+  updatedAt: string;
+  _id: string;
+}
+
+export type BudgetTypeResponse = {
+  data: { budget: BudgetType };
+};
