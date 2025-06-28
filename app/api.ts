@@ -85,6 +85,9 @@ export const endPoints = {
   acceptInvite: { endPoint: "/acceptInvite", method: HttpMethods.PUT },
   rejectInvite: { endPoint: "/rejectInvite", method: HttpMethods.PUT },
   createBudget: { endPoint: "/createBudget", method: HttpMethods.POST },
+  history: { endPoint: "/history", method: HttpMethods.GET },
+  incomes: { endPoint: "/incomes", method: HttpMethods.GET },
+  createIncome: { endPoint: "/createIncome", method: HttpMethods.POST },
 };
 
 export default function useLazyQuery(

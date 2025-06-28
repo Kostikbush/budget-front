@@ -8,6 +8,7 @@ const config = {
     "./features/**/*.{js,ts,jsx,tsx,mdx}",
     "./widgets/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
+    "./entities/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {

@@ -13,14 +13,14 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { Button, Image, Tab, Tabs } from "@heroui/react";
 
 import { AiOutlineAim } from "react-icons/ai";
-// копилка
-import { TbPigMoney } from "react-icons/tb";
+
 import { GiReceiveMoney } from "react-icons/gi";
 import { GiPayMoney } from "react-icons/gi";
 
 import blackLogo from "./logo_black3.png";
 import { IoHomeOutline } from "react-icons/io5";
 import { useScroll } from "./useScroll";
+import { Incomes } from "../incomes/income";
 
 const tabsKeys = {
   budget: "budget",
@@ -38,7 +38,7 @@ const tabs = [
   {
     key: tabsKeys.income,
     icon: <GiReceiveMoney size={20} />,
-    component: <Budget />,
+    component: <Incomes />,
   },
   {
     key: tabsKeys.expense,
@@ -118,11 +118,10 @@ export const BudgetMain = () => {
         </Tabs>
         <Button
           isIconOnly
-          aria-label="Take a photo"
           color="primary"
           variant="light"
           onPress={toggleTabs}
-          className="fixed bottom-[16px] left-[calc(100%-80px)]"
+          className={`fixed bottom-[16px] left-[calc(100%-50px)] ${hideTabs ? "rotate-180 transition-transform" : "rotate-0 transition-transform"}`}
         >
           <MdKeyboardArrowDown />
         </Button>

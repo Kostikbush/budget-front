@@ -1,5 +1,13 @@
 import { SVGProps } from "react";
 
+export enum Frequency {
+  once = "once",
+  daily = "daily",
+  weekly = "weekly",
+  monthly = "monthly",
+  yearly = "yearly",
+}
+
 export type IconSvgProps = SVGProps<SVGSVGElement> & {
   size?: number;
 };
@@ -32,4 +40,32 @@ export interface BudgetType {
 
 export type BudgetTypeResponse = {
   data: { budget: BudgetType };
+};
+
+export interface IncomeType {
+  budgetId: string;
+  userId: string;
+  title: string;
+  amount: number;
+  frequency: Frequency;
+  date: string;
+  createdAt: string;
+  _id: string;
+}
+
+export interface IncomeDataRequestBody {
+  title: string;
+  amount: number;
+  frequency: Frequency;
+  date: string;
+}
+
+export interface IncomeTypeRequestBody {
+  budgetId: string;
+  userId: string;
+  incomeData: IncomeDataRequestBody;
+}
+
+export type IncomeTypeResponse = {
+  data: { incomes: IncomeType[] };
 };
